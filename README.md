@@ -3,13 +3,26 @@
 ## English & 한국어 Version
 
 ## 1. Introduction / 소개
-This project implements a **probabilistic language identification system** that determines whether a given text is written in **English or Spanish** using **Bayesian Inference**.
+
+This project implements a **Bayesian probabilistic language identification system** that determines whether a given text is written in **English or Spanish** using **Bayesian Inference**.
 
 이 프로젝트는 **베이즈 추론(Bayesian Inference)**을 활용하여 주어진 텍스트가 **영어인지 스페인어인지** 확률적으로 판별하는 시스템입니다.
 
-The input consists of a text file where the only available information is the **frequency of each letter (A-Z) in the text**. The system analyzes these character frequencies and applies a Bayesian model to estimate the most likely language of the text.
+The input consists of a text file along with two prior probability values. The text file contains printable ASCII characters, and the system processes it to compute the **frequency of each letter (A-Z) while ignoring case and non-alphabetic characters**. The prior probability values indicate the likelihood of the text being in English or Spanish before analyzing its content. 
 
-입력 데이터는 **텍스트에서 A-Z까지 각 문자 빈도수**로만 구성됩니다. 본 시스템은 이러한 문자 빈도를 분석하고 베이즈 모델을 적용하여 가장 가능성이 높은 언어를 예측합니다.
+입력 데이터는 텍스트 파일과 두 개의 사전 확률 값으로 구성됩니다. 텍스트 파일은 ASCII 문자로 이루어져 있으며, 시스템은 이를 처리하여 **A-Z까지 각 문자 빈도를 계산하며, 대소문자를 무시하고 비알파벳 문자는 제외**합니다. 
+
+### 1.1 Prior Probability / 사전 확률
+The **prior probability** \(P(Y = y)\) represents the likelihood of the text belonging to language \(y\) before analyzing its contents. These probabilities are user-defined inputs:
+
+사전 확률 \(P(Y = y)\)은 텍스트가 특정 언어일 가능성을 분석하기 전에 주어지는 값으로, 사용자 입력을 통해 설정됩니다.
+
+- \(P(Y = 	ext{English})\) : The prior probability of the text being English.
+- \(P(Y = 	ext{Spanish}) = 1 - P(Y = 	ext{English})\): The prior probability of the text being Spanish.
+
+These values help guide the Bayesian model when making a final decision.
+
+이 값들은 베이즈 모델이 최종 결정을 내리는 데 중요한 역할을 합니다.
 
 ---
 
