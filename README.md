@@ -177,10 +177,3 @@ pytest test_hw2.py
 - **n-그램 분석을 추가하여 정확도를 향상**
 - **기계 학습 기법을 적용하여 성능 개선**
 
----
-
-## 7. License / 라이선스
-This project is released under the **MIT License**.
-
-이 프로젝트는 **MIT 라이선스**로 제공됩니다.
-
