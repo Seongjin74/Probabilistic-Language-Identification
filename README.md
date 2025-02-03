@@ -32,13 +32,13 @@ The program is executed as follows:
 프로그램은 다음 명령어를 사용하여 실행할 수 있습니다:
 
 ```bash
-python3 hw2.py [letter_file] [english_prior] [spanish_prior]
+python3 language_identifier.py [letter_file] [english_prior] [spanish_prior]
 ```
 
 For example / 실행 예제:
 
 ```bash
-python3 hw2.py samples/letter0.txt 0.6 0.4
+python3 language_identifier.py samples/letter0.txt 0.6 0.4
 ```
 
 ### Expected Output / 예상 출력
@@ -154,29 +154,6 @@ P(Y = \text{English} | X) = \frac{1}{1 + e^{F(\text{Spanish}) - F(\text{English}
 - `shred(filename)`: 텍스트 파일을 읽어 모든 문자를 대문자로 변환한 후, A-Z 문자 빈도를 계산합니다.
 - `compute_F(counts, parameter_vector, prior)`: 문자 빈도를 기반으로 주어진 확률 벡터를 이용해 로그 확률 \( F(y) \)를 계산합니다.
 - `main()`: 입력 인수를 해석하고 확률 데이터를 로드한 뒤, 문자 빈도를 분석하고 최종 언어 확률을 계산합니다.
-
----
-
-## 5. Testing and Validation / 테스트 및 검증
-
-### 5.1 Comparing Output to Expected Results / 출력 비교
-Run the following command to compare the output:
-
-출력 결과를 비교하려면 다음 명령을 실행합니다:
-
-```bash
-python3 hw2.py samples/letter0.txt 0.6 0.4 > my_output.txt
-vimdiff my_output.txt samples/letter0_out.txt
-```
-
-### 5.2 Running Unit Tests / 단위 테스트 실행
-Unit tests are included in `test_hw2.py`, which can be executed using `pytest`.
-
-본 프로젝트는 `test_hw2.py` 파일에 단위 테스트를 포함하고 있으며, `pytest`를 사용하여 실행할 수 있습니다:
-
-```bash
-pytest test_hw2.py
-```
 
 ---
 
