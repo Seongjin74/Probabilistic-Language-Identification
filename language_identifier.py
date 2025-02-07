@@ -17,12 +17,7 @@ def get_parameter_vectors():
 
     with open('e.txt',encoding='utf-8') as f:
         for line in f:
-            #strip: removes the newline character
-            #split: split the string on space character
             char,prob=line.strip().split(" ")
-            #ord('E') gives the ASCII (integer) value of character 'E'
-            #we then subtract it from 'A' to give array index
-            #This way 'A' gets index 0 and 'Z' gets index 25.
             e[ord(char)-ord('A')]=float(prob)
     f.close()
 
@@ -35,12 +30,9 @@ def get_parameter_vectors():
     return (e,s)
 
 def shred(filename):
-    #Using a dictionary here. You may change this to any data structure of
-    #your choice such as lists (X=[]) etc. for the assignment
     counts = {chr(i) : 0 for i in range (ord('A'), ord("Z")+1)}
 
     with open (filename,encoding='utf-8') as f:
-        # TODO: add your code here
         text = f.read()
         text = text.upper()
 
@@ -52,13 +44,7 @@ def shred(filename):
     for letter in sorted(counts.keys()):
         print(f"{letter} {counts[letter]}")
 
-
     return counts
-
-
-# TODO: add your code here for the assignment
-# You are free to implement it as you wish!
-# Happy Coding!
 
 def compute_F(counts, parameter_vector, prior):
 
@@ -68,8 +54,6 @@ def compute_F(counts, parameter_vector, prior):
         F += counts[letter] * math.log(parameter_vector[counter])
         counter += 1  
     return F
-
-
 
 def main():
     if len(sys.argv) != 4:
@@ -98,9 +82,7 @@ def main():
     print(f"{F_e:.4f}")
     print(f"{F_s:.4f}")
 
-
     diff = F_s - F_e
-
 
     if diff >= 100:
         p_e = 0.0
@@ -111,8 +93,6 @@ def main():
     
     print("Q4")
     print(f"{p_e:.4f}")
-
-
 
 if __name__ == "__main__":
     main()
